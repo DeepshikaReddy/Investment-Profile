@@ -18,40 +18,40 @@ const TopBar = ()=>{
     //Similar to <div> but can add css directly to it.
     //padding set to 2 ,justifyContent distributes child element evetually on main axis of flx container. 
     //InputBase is for input tags
-    return(<Box display="flex" justifyContent="space-between" p={2}>
-        {/* SEARCH BAR */}
-        <Box display="flex" backgroundColor={colors.primary[400]} borderRadius="3px">   
-        <InputBase sx={{ml:2,flex:1}} placeholder="Search"/>
-        <IconButton type="button" sx={{p:1}}>
-        <SearchIcon />
+    return (
+    <Box display="flex" justifyContent="space-between" p={2}>
+      {/* SEARCH BAR */}
+      <Box
+        display="flex"
+        backgroundColor={colors.primary[400]}
+        borderRadius="3px"
+      >
+        <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" />
+        <IconButton type="button" sx={{ p: 1 }}>
+          <SearchIcon />
         </IconButton>
-        </Box>
+      </Box>
 
-        {/* ICONS*/}
-        <box display="flex">
-        <IconButton>
-        <NotificationsOutlinedIcon/>
-        </IconButton>
-
-        <IconButton>
-        <SettingsOutlinedIcon/>
-        </IconButton>
-
-        <IconButton>
-        <PersonOutlinedIcon/>
-        </IconButton>
-
+      {/* ICONS */}
+      <Box display="flex">
         <IconButton onClick={colorMode.toggleColorMode}>
-            {theme.palette.mode ==="dark"? (
-            <DarkModeOutlinedIcon/>
-            ) :  <LightModeOutlinedIcon/>}
-        
+          {theme.palette.mode === "dark" ? (
+            <DarkModeOutlinedIcon />
+          ) : (
+            <LightModeOutlinedIcon />
+          )}
         </IconButton>
-        </box>
-
-    <IconButton sx={{display:"flex"}}></IconButton>
-    </Box>)
-    
-}
-
+        <IconButton>
+          <NotificationsOutlinedIcon />
+        </IconButton>
+        <IconButton>
+          <SettingsOutlinedIcon />
+        </IconButton>
+        <IconButton>
+          <PersonOutlinedIcon />
+        </IconButton>
+      </Box>
+    </Box>
+  );
+};
 export default TopBar;
