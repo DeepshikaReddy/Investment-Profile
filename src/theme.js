@@ -5,7 +5,7 @@ import {createTheme} from "@mui/material/styles";
 export const tokens = (mode) => ({
     ...(mode === 'dark' )
     ? {//color Design Tokens
-        indigoDark: {
+        grey: {
             100: "#e0e0e0",
             200: "#c2c2c2",
             300: "#a3a3a3",
@@ -16,7 +16,7 @@ export const tokens = (mode) => ({
             800: "#292929",
             900: "#141414"
         },
-        blackDark: {
+        primary: {
             100: "#d0d1d5",
             200: "#a1a4ab",
             300: "#727681",
@@ -27,7 +27,7 @@ export const tokens = (mode) => ({
             800: "#080b12",
             900: "#040509"
         },
-        greenDark: {
+        greenAccent: {
             100: "#dbf5ee",
             200: "#b7ebde",
             300: "#94e2cd",
@@ -38,7 +38,7 @@ export const tokens = (mode) => ({
             800: "#1e5245",
             900: "#0f2922"
         },
-        redDark: {
+        redAccent: {
             100: "#f8dcdb",
             200: "#f1b9b7",
             300: "#e99592",
@@ -49,7 +49,7 @@ export const tokens = (mode) => ({
             800: "#58201e",
             900: "#2c100f"
         },
-        indigoDark: {
+        blueAccent: {
             100: "#e1e2fe",
             200: "#c3c6fd",
             300: "#a4a9fc",
@@ -60,7 +60,7 @@ export const tokens = (mode) => ({
             800: "#2a2d64",
             900: "#151632"
         },} : {//color Design Tokens
-            indigo: {
+            grey: {
                 900: "#141414",
                 800: "#292929",
                 700: "#3d3d3d",
@@ -71,7 +71,7 @@ export const tokens = (mode) => ({
                 200: "#c2c2c2",
                 100: "#e0e0e0"
             },
-            black: {
+            primary: {
                 900: "#040509",
 800: "#080b12",
 700: "#0c101b",
@@ -82,7 +82,7 @@ export const tokens = (mode) => ({
 200: "#a1a4ab",
 100: "#d0d1d5",
             },
-            green: {
+            greenAccent: {
                 900: "#0f2922",
 800: "#1e5245",
 700: "#2e7c67",
@@ -93,7 +93,7 @@ export const tokens = (mode) => ({
 200: "#b7ebde",
 100: "#dbf5ee",
             },
-            red: {
+            redAccent: {
                 900: "#2c100f",
 800: "#58201e",
 700: "#832f2c",
@@ -104,7 +104,7 @@ export const tokens = (mode) => ({
 200: "#f1b9b7",
 100: "#f8dcdb",
             },
-            indigo: {
+            blueAccent: {
                 900: "#151632",
 800: "#2a2d64",
 700: "#3e4396",
@@ -115,8 +115,113 @@ export const tokens = (mode) => ({
 200: "#c3c6fd",
 100: "#e1e2fe",
             },}
+});
 
+export const themeSettings = (mode) => {
+
+    //Based on the mode give the colors.
+    const colors = tokens(mode);
+
+    //Return various colors based on mode.
+    return {
+        palette:{
+            mode:mode,
+            ...(mode === 'dark'
+            ? {
+                primary:{
+                    main:colors.primary[500],
+                },
+                secondary:{
+                    main:colors.greenAccent[500],
+                },
+                neutral:{
+                    dark:colors.grey[700],
+                    main:colors.grey[500],
+                    light:colors.grey[100],
+                },
+                background:{
+                    default:colors.primary[500],
+
+                }
+            }:{
+                primary:{
+                    main:colors.primary[100],
+                },
+                secondary:{
+                    main:colors.greenAccent[500],
+                },
+                neutral:{
+                    dark:colors.grey[700],
+                    main:colors.grey[500],
+                    light:colors.grey[100],
+                },
+                background:{
+                    default:"#fcfcfc",
+                }
+            }),
+        },
+        typography:{
+            fontFamily:["Source Sans Pro","sans-serif"].join(","),
+            fontSize:12,
+            h1: {
+                fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
+                fontSize: 40,
+              },
+              h2: {
+                fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
+                fontSize: 32,
+              },
+              h3: {
+                fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
+                fontSize: 24,
+              },
+              h4: {
+                fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
+                fontSize: 20,
+              },
+              h5: {
+                fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
+                fontSize: 16,
+              },
+              h6: {
+                fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
+                fontSize: 14,
+              },
+
+        }
+    }
+}
+
+
+//context for color mode.
+export const ColorModeContext =  createContext(() =>{
 
 });
+
+//function definition  const a = ()=>{} ; a( ()=>{} );
+export const useMode = () =>{
+    const [mode,setMode]= useState("dark")
+    //cache the result for faster computation.
+    //executes only once.
+    const colorMode = useMemo( 
+    ()=>({
+        toggleColorMode: () =>
+          setMode((prev) => (prev === "light" ? "dark" : "light")),
+      }) , []
+    );
+
+    //useMemo(function_execute,[dependencies])
+    const theme = useMemo(
+        ()=>{
+            createTheme(themeSettings(mode))
+        },
+        [mode]
+    );
+    return [theme,colorMode];
+}
+
+
+
+
 
 
