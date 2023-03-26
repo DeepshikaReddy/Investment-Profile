@@ -121,33 +121,33 @@ setSelected={setSelected}
 
 <Typography variant="h6" color={colors.grey[300]} sx={{m: "15px 0 5px 20px"}}>Business</Typography>
 <SideBarComponent
-title="Manage Team"
+title="Teams"
 to="/team"
 icon={<PeopleOutlinedIcon />}
 selected={selected}
 setSelected={setSelected}/>
 <SideBarComponent
-title="Calendar"
+title="Schedule"
 to="/calendar"
 icon={<CalendarTodayOutlinedIcon />}
 selected={selected}
 setSelected={setSelected}
 />
 <SideBarComponent
-title="Invoices Balances"
+title="Balance Sheet"
 to="/invoices"
 icon={<ReceiptOutlinedIcon />}
 selected={selected}
 setSelected={setSelected}
 />
 <SideBarComponent
-title="Contacts Information"
+title="Client Contact Details"
 to="/contacts"
 icon={<ContactsOutlinedIcon />}
 selected={selected}
 setSelected={setSelected}/>
 <SideBarComponent
-title="Profile Form"
+title="Form "
 to="/form"
 icon={<PersonOutlinedIcon />}
 selected={selected}
@@ -156,28 +156,28 @@ setSelected={setSelected}
 
 <Typography variant="h6" color={colors.grey[300]} sx={{m: "15px 0 5px 20px"}}>Analytics</Typography>
 <SideBarComponent
-title="Bar Chart"
+title="Column Chart"
 to="/bar"
 icon={<BarChartOutlinedIcon />}
 selected={selected}
 setSelected={setSelected}
 />          
 <SideBarComponent
-title="Pie Chart"
+title="Sector Chart"
 to="/pie"
 icon={<PieChartOutlineOutlinedIcon />}
 selected={selected}
 setSelected={setSelected}
 />          
 <SideBarComponent
-title="Geography Chart"
+title="Map"
 to="/geography"
 icon={<MapOutlinedIcon />}
 selected={selected}
 setSelected={setSelected}
 />
 <SideBarComponent
-title="Line Chart"
+title="Time Chart"
 to="/line"
 icon={<TimelineOutlinedIcon />}
 selected={selected}
