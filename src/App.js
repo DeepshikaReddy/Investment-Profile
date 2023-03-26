@@ -46,7 +46,8 @@ const  App = () => {
       <Route exact path="/pie" element={<Pie/>} />
       <Route exact path="/faq" element={<FAQ/>} />
       <Route exact path="/geography" element={<Geography/>} />
-      <Route exact path="/calendar" element={<Calendar/>} /> */}
+      <Route exact path="/calendar" element={<Calendar/>} /> */
+      }
 
 
     </Routes>
