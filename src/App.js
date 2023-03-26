@@ -1,9 +1,23 @@
 
 import { ColorModeContext,useMode } from "./theme";
 import {CssBaseline,ThemeProvider} from "@mui/material"
-import TopBar from "./scenes/global/TopBar"
+import SideBar from "./scenes/global/SideBar";
+import TopBar from "./scenes/global/TopBar";
 
-function App() {
+import Dashboard from "./scenes/dashboard";
+// import Team from "./scenes/team";
+// import Invoices from "./scenes/invoices";
+// import Contacts from "./scenes/contacts";
+// import Bar from "./scenes/bar";
+// import Form from "./scenes/form";
+// import Line from "./scenes/line";
+// import Pie from "./scenes/pie";
+// import FAQ from "./scenes/faq";
+// import Geography from "./scenes/geography";
+// import Calendar from "./scenes/calendar";
+import {Routes,Route} from "react-router-dom";
+
+const  App = () => {
   const [theme,colorMode] = useMode();
 
   return (
@@ -16,6 +30,22 @@ function App() {
     <div className="app1">
     <main className="content">
     <TopBar/>
+
+    <Routes>
+      <Route exact path="/" element={<Dashboard/>} />
+      {/* <Route exact path="/team" element={<Team/>} />
+      <Route exact path="/invoices" element={<Invoices/>} />
+      <Route exact path="/contacts" element={<Contacts/>} />
+      <Route exact path="/bar" element={<Bar/>} />
+      <Route exact path="/form" element={<Form/>} />
+      <Route exact path="/line" element={<Line/>} />
+      <Route exact path="/pie" element={<Pie/>} />
+      <Route exact path="/faq" element={<FAQ/>} />
+      <Route exact path="/geography" element={<Geography/>} />
+      <Route exact path="/calendar" element={<Calendar/>} /> */}
+
+
+    </Routes>
     </main>
     </div>
     </ThemeProvider>
@@ -25,3 +55,4 @@ function App() {
 }
 
 export default App;
+

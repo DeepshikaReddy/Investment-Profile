@@ -204,13 +204,17 @@ export const useMode = () => {
   const [mode, setMode] = useState("dark");
 
   //mounted only once as dependencies are empty.
+  //usemOde take 2 parameters . function and dependencies and returns the function.
   const colorMode = useMemo(
-    () => ({
-      toggleColorMode: () =>
-        setMode((prev) => (prev === "light" ? "dark" : "light")),
-    }),
-    []
-  );
+    () => {
+    const toggleColorMode = () => {
+      setMode(mode => (mode === "light" ? "dark" : "light"));
+    };
+    return { toggleColorMode };
+  }, []);
+  
+
+  
 
   //cache the result for faster computation.
   //when mode changes then recompute the styleing properties.
