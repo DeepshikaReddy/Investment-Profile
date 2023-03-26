@@ -22,7 +22,8 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 
 
-//Component for each Sidebar.
+//Component for each SideBarComponent.
+//SideBarComponent =(props) => {}
 const SideBarComponent = ({ title, to, icon, selected, setSelected }) => {
     const theme = useTheme();
     const colors = token_mode(theme.palette.mode);
@@ -44,8 +45,8 @@ const SideBarComponent = ({ title, to, icon, selected, setSelected }) => {
 const SideBar = () => {
     const theme= useTheme();
     const colors = token_mode(theme.palette.mode); // has value dark or light.
-    const {isCollapsed, setisCollapsed}= useState(findAllByDisplayValue); // is sidebar collapsed or not.
-    const {selected,setSelected}=useState("Dashboard"); //Which page is selected
+    const [isCollapsed, setIsCollapsed]= useState(false); // is sidebar collapsed or not.
+    const [selected,setSelected] =useState("Dashboard"); //Which page is selected
 
 
     //sx is used to set inline text and & targets the child element with class pro-sidebar-inner and test properties.
@@ -72,8 +73,8 @@ const SideBar = () => {
 {/* Menu for Sidebar*/}
 <Menu iconShape="square"> 
 {/*Icon for Menu */}
-<MenuItem onclick = { () => setisCollapsed(!isCollapsed) }
-    icon = {isCollapsed ? <ArrowDropDownCircle/> : undefined}
+<MenuItem onClick={() => setIsCollapsed(!isCollapsed)} 
+    icon = {isCollapsed ? <MenuOutlinedIcon/> : undefined}
     style={{margin: "10px 0 20px 0",color: colors.grey[100]}}
  >
 
@@ -81,9 +82,9 @@ const SideBar = () => {
 {!isCollapsed && (
     <Box 
     display="flex"  justifyContent="space-between" alignItems="center" ml="17px" >
-        <Typography variant="h3" color={colors.grey[100]}>Portfolio Managment Toolkit</Typography>
-        <IconButton onclick = { ()=>setisCollapsed(!isCollapsed)} >
-         <ArrowDropDownCircle/>   
+        <Typography variant="h3" color={colors.grey[100]}></Typography>
+        <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
+         <MenuOutlinedIcon/>   
         </IconButton>
     </Box>
 )}

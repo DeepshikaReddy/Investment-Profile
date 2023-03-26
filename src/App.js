@@ -1,6 +1,6 @@
 
 import { ColorModeContext,useMode } from "./theme";
-import {CssBaseline,ThemeProvider} from "@mui/material"
+import {CssBaseline,ThemeProvider,Stack} from "@mui/material"
 import SideBar from "./scenes/global/SideBar";
 import TopBar from "./scenes/global/TopBar";
 import { useState } from "react";
@@ -29,9 +29,17 @@ const  App = () => {
     <ColorModeContext.Provider value = {colorMode}>
     <ThemeProvider theme = {theme}>
     <CssBaseline/>
+
     <div className="app">
     <SideBar isSidebar={isSidebar} />
+
     <main className="content">
+      <div class="container ">
+      <Stack class="main-text" direction="row" spacing={2} >
+      <h1>Portfolio Management</h1>
+      </Stack>
+      </div>
+    
     <TopBar setIsSidebar={setIsSidebar} />
 
     <Routes>

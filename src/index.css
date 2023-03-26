@@ -33,3 +33,13 @@ body,
   background:#555;
 
 }
+
+/*Main heading margin values*/
+.main-text {
+  margin-left: 50%;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto; /* Center the container */
+}
