@@ -3,6 +3,7 @@ import { ColorModeContext,useMode } from "./theme";
 import {CssBaseline,ThemeProvider} from "@mui/material"
 import SideBar from "./scenes/global/SideBar";
 import TopBar from "./scenes/global/TopBar";
+import { useState } from "react";
 
 import Dashboard from "./scenes/dashboard";
 // import Team from "./scenes/team";
@@ -19,6 +20,7 @@ import {Routes,Route} from "react-router-dom";
 
 const  App = () => {
   const [theme,colorMode] = useMode();
+  const [isSidebar, setIsSidebar] = useState(true);
 
   return (
     //Provide value to all the Component values.
@@ -27,13 +29,15 @@ const  App = () => {
     <ColorModeContext.Provider value = {colorMode}>
     <ThemeProvider theme = {theme}>
     <CssBaseline/>
-    <div className="app1">
+    <div className="app">
+    <SideBar isSidebar={isSidebar} />
     <main className="content">
-    <TopBar/>
+    <TopBar setIsSidebar={setIsSidebar} />
 
     <Routes>
-      <Route exact path="/" element={<SideBar/>} />
-      {/* <Route exact path="/team" element={<Team/>} />
+      {
+       <Route path="/" element={<Dashboard />} />
+      /* <Route exact path="/team" element={<Team/>} />
       <Route exact path="/invoices" element={<Invoices/>} />
       <Route exact path="/contacts" element={<Contacts/>} />
       <Route exact path="/bar" element={<Bar/>} />
