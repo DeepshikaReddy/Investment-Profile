@@ -6,24 +6,45 @@ import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettin
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import Header from "../../components/Header";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
+const access = ['user','manager','admin']
+
+const generatePhoneNumbers = ()=>{
+
+  let phoneNumber = '';
+  const areaCode = Math.floor(Math.random() * 900) + 100;
+  phoneNumber += areaCode.toString() + '-';
+
+  const exchangeCode = Math.floor(Math.random() * 900) + 100;
+  phoneNumber += exchangeCode.toString() + '-';
+  
+  const lineNumber = Math.floor(Math.random() * 9000) + 1000;
+  phoneNumber += lineNumber.toString();
+
+  return phoneNumber;
+}
 const Team = () =>{
+
+    const [rows,setRows]=useState([])
+    
     const theme = useTheme()
     const colors= token_mode(theme.palette.mode);
     const columns = [
         { field: "id", headerName: "ID number" },
         {
-          field: "name",
-          headerName: "Full Name",
+          field: "first_name",
+          headerName: "First Name",
           flex: 1, // take equal space 
           cellClassName: "name-column--cell", //each cell has class name value
         },
         {
-          field: "age",
-          headerName: "Age Bracket",
-          headerAlign: "left",
-          align: "left",
-        },
+            field: "last_name",
+            headerName: "Last Name",
+            flex: 1, // take equal space 
+            cellClassName: "name-column--cell", //each cell has class name value
+          },
         {
           field: "phone",
           headerName: "Phone NumberContact",
@@ -35,6 +56,18 @@ const Team = () =>{
           flex: 1,
         },
         {
+            field: "avatar",
+            headerName: "Profile Photo",
+            flex: 1,
+            renderCell:({row:{avatar}})=> {
+                return(
+                    <Box>
+                    <img src={avatar} alt="Profile" />
+                    </Box>
+                    )
+            }
+          },
+        {
             field:"access",
             headerName:"Permission ",
             flex:1,
@@ -42,14 +75,14 @@ const Team = () =>{
                 return(
                     <Box width="60%" m ="0 auto" p="5px" display="flex" justifyContent="center" backgroundColor={
                       access==="admin"
-                      ? colors.greenAccent[600]
-                      : access === "manager"
-                      ? colors.greenAccent[700]
-                      : access === "user"
-                      ? colors.greenAccent[500]
-                      : colors.greenAccent[100]
+                        ? colors.greenAccent[600]
+                            : access === "manager"
+                                ? colors.greenAccent[700]
+                                    : access === "user"
+                                        ? colors.greenAccent[500]
+                       : colors.greenAccent[100]
                     } borderRadius="5px">
-                    {access==="manager" && <SecurityOutlinedIcon/>}
+                     {access==="manager" && <SecurityOutlinedIcon/>}
                      {access==="admin" && <AdminPanelSettingsOutlinedIcon/>}
                      {access==="user" && <LockOpenOutlinedIcon/>}
                      <Typography color={colors.grey[100]} sx={{ml:"6px"}} >{access}</Typography>
@@ -60,12 +93,29 @@ const Team = () =>{
         }
     ]
 
+    useEffect(()=>{
+        const fetchData = async ()=>{
+           const {data} = await axios.get("https://reqres.in/api/users");
+           console.log(data)
+           const updatedData = data.data.map((row)=>{
+                row['phone']=generatePhoneNumbers();
+                const randomIndex = Math.floor(Math.random() * access.length);
+                row['access']=  access[randomIndex];
+                return row;
+           })
+           setRows(updatedData)
+        }
+        fetchData();
+
+    },[])
+
+
     return(
         <Box m ="20px">
             <Header title="TEAMS" subtitle="Managing Teams"></Header>
             <Box m="50px 0 0 0" height="75vh">
                 <DataGrid
-                rows = {mockDataTeam}
+                rows = {rows}
                 columns = {columns}
                 />
             </Box>  
