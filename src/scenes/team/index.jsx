@@ -9,7 +9,7 @@ import Header from "../../components/Header";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const access = ['user','manager','admin']
+const access = ['(CFO)','RiskManager','Analyst']
 
 const generatePhoneNumbers = ()=>{
 
@@ -61,6 +61,7 @@ const Team = () =>{
             field: "avatar",
             headerName: "Profile Photo",
             flex: 1,
+            headerAlign: "center",
             renderCell:({row:{avatar}})=> {
                 return(
                     <Box>
@@ -71,22 +72,24 @@ const Team = () =>{
           },
         {
             field:"access",
-            headerName:"Permission ",
+            headerName:"Role ",
+            headerAlign: "center",
             flex:1,
+
             renderCell:({row :{access}})=>{
                 return(
-                    <Box width="60%" m ="0 auto" p="5px" display="flex" justifyContent="center" backgroundColor={
-                      access==="admin"
-                        ? colors.greenAccent[600]
-                            : access === "manager"
+                    <Box width="70%" m ="0 auto" p="5px" display="flex" justifyContent="center" backgroundColor={
+                      access==="Analyst"
+                        ? colors.greenAccent[800]
+                            : access === "RiskManager"
                                 ? colors.greenAccent[700]
-                                    : access === "user"
-                                        ? colors.greenAccent[500]
+                                    : access === "(CFO)"
+                                        ? colors.greenAccent[800]
                        : colors.greenAccent[100]
                     } borderRadius="5px">
-                     {access==="manager" && <SecurityOutlinedIcon/>}
-                     {access==="admin" && <AdminPanelSettingsOutlinedIcon/>}
-                     {access==="user" && <LockOpenOutlinedIcon/>}
+                     {access==="RiskManager" && <SecurityOutlinedIcon/>}
+                     {access==="(CFO)" && <AdminPanelSettingsOutlinedIcon/>}
+                     {access==="Analyst" && <LockOpenOutlinedIcon/>}
                      <Typography color={colors.grey[100]} sx={{ml:"6px"}} >{access}</Typography>
                     </Box>
                 )
