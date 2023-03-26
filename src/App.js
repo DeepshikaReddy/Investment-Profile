@@ -7,8 +7,7 @@ import { useState } from "react";
 
 import Dashboard from "./scenes/dashboard";
 import Team from "./scenes/team"
-// import Invoices from "./scenes/invoices";
-// import Contacts from "./scenes/contacts";
+import Contacts from "./scenes/contacts";
 // import Bar from "./scenes/bar";
 // import Form from "./scenes/form";
 // import Line from "./scenes/line";
@@ -34,20 +33,13 @@ const  App = () => {
     <SideBar isSidebar={isSidebar} />
 
     <main className="content">
-      <div class="container ">
-      <Stack class="main-text" direction="row" spacing={2} >
-      <h1>Portfolio Management</h1>
-      </Stack>
-      </div>
     
     <TopBar setIsSidebar={setIsSidebar} />
 
     <Routes>
       <Route exact path="/" element={<Dashboard/>} />
-      <Route path="/team" element={<Team/>} />
-
-      {/* <Route  path="/invoices" element={<Invoices/>} /> */}
-      {/* <Route  path="/contacts" element={<Contacts/>} /> */}
+      <Route exact path="/team" element={<Team/>} />
+      <Route  path="/contacts" element={<Contacts/>} />
       {/* <Route exact path="/bar" element={<Bar/>} /> */}
       {/* <Route exact path="/form" element={<Form/>} /> */}
       {/* <Route exact path="/line" element={<Line/>} /> */}
@@ -67,4 +59,6 @@ const  App = () => {
 }
 
 export default App;
+
+
 

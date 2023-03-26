@@ -141,13 +141,6 @@ selected={selected}
 setSelected={setSelected}
 />
 <SideBarComponent
-title="Balance Sheet"
-to="/invoices"
-icon={<ReceiptOutlinedIcon />}
-selected={selected}
-setSelected={setSelected}
-/>
-<SideBarComponent
 title="Client Contact Details"
 to="/contacts"
 icon={<ContactsOutlinedIcon />}
