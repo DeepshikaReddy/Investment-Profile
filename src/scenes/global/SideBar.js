@@ -4,7 +4,7 @@ import {Box,IconButton,Typography,useTheme} from '@mui/material';
 import { ProSidebarProvider,Menu,MenuItem } from "react-pro-sidebar"; //Sidebar component in react for the Page
 // import 'react-pro-sidebar/dist/css/styles.css';
 
-import { Link } from "react-router-dom"; //Links when we click on the nVigation items
+import { Link , useLocation} from "react-router-dom"; //Links when we click on the nVigation items
 import { token_mode } from "../../theme";
 import { findAllByDisplayValue } from "@testing-library/react";
 import { ArrowDropDownCircle } from "@mui/icons-material";
@@ -25,22 +25,28 @@ import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 //Component for each SideBarComponent.
 //SideBarComponent =(props) => {}
 const SideBarComponent = ({ title, to, icon, selected, setSelected }) => {
-    const theme = useTheme();
-    const colors = token_mode(theme.palette.mode);
-    return (
+  const theme = useTheme();
+  const colors = token_mode(theme.palette.mode);
+  return (
+    <Link to={to}>
       <MenuItem
         active={selected === title}
         style={{
-          color: colors.grey[200],
+          color: colors.grey[100],
         }}
         onClick={() => setSelected(title)}
         icon={icon}
       >
         <Typography>{title}</Typography>
-        <Link to={to} />
       </MenuItem>
-    );
-  }; 
+    </Link>
+  );
+};
+
+
+
+
+
 
 const SideBar = () => {
     const theme= useTheme();
@@ -103,7 +109,7 @@ const SideBar = () => {
 </Box>  
 
 <Box textAlign="center">
-<Typography variant="h6" color={colors.primary[200]}>Senior portfolio manager for Primary Assets.</Typography>  
+<Typography variant="h5" color={colors.greenAccent[400]}>Senior portfolio manager for Primary Assets.</Typography>  
 </Box>    
 </Box>
 )
@@ -120,7 +126,7 @@ selected={selected}
 setSelected={setSelected}
 />
 
-<Typography variant="h6" color={colors.grey[300]} sx={{m: "15px 0 5px 20px"}}>Business</Typography>
+<Typography variant="h6" color={colors.greenAccent[200]} sx={{m: "15px 0 5px 20px"}}>Business</Typography>
 <SideBarComponent
 title="Teams"
 to="/team"
@@ -155,7 +161,7 @@ selected={selected}
 setSelected={setSelected}
 />
 
-<Typography variant="h6" color={colors.grey[300]} sx={{m: "15px 0 5px 20px"}}>Analytics</Typography>
+<Typography variant="h6" color={colors.greenAccent[200]} sx={{m: "15px 0 5px 20px"}}>Analytics</Typography>
 <SideBarComponent
 title="Column Chart"
 to="/bar"
@@ -185,7 +191,7 @@ selected={selected}
 setSelected={setSelected}
 />
 
-<Typography variant="h6" color={colors.grey[300]} sx={{m: "15px 0 5px 20px"}}>Support</Typography>
+<Typography variant="h6" color={colors.greenAccent[200]} sx={{m: "15px 0 5px 20px"}}>Support</Typography>
 <SideBarComponent
 title="FAQ"
 to="/faq"
