@@ -19,6 +19,7 @@ const initValues={
 
 
 const phoneRegex= /^\(\d{3}\) \d{3}-\d{4}$/;
+
 const clientSchema=yup.object().shape({
     Name : yup.string().required("Required Field"),
     Email : yup.string().required("Required Field"),
@@ -34,7 +35,7 @@ const Form = ()=>{
         console.log(values)
         setShowAlert(true);
         // additional code to handle form submission
-
+        
         setTimeout(() => {
           setShowAlert(false);
         }, 2000); // hide alert after 2 seconds
@@ -53,7 +54,7 @@ const Form = ()=>{
                 //column has 1 fractin space.
 
                 <form onSubmit={handleSubmit}>
-                    <Box display="grid" gap="20px" gridTemplateColumns="repeat(4,minmax(0,1fr))"
+                    <Box display="grid" gap="30px" gridTemplateColumns="repeat(4,minmax(0,1fr))"
                     sx={{
                         "& > div " : {gridColumn: notMobile ? undefined : "span 4"}
                     }}>
@@ -107,7 +108,7 @@ const Form = ()=>{
                     name="Contact"
                     error={!!touched.Contact && !!errors.Contact} //!! makes it boolean and if value is empty then error thrown/
                     helperText={touched.Contact && errors.Contact}//mention the error Contact on field.
-                    sx={{ gridColumn: "span 2" }}/>
+                    sx={{ gridColumn: "span 4" }}/>
 
                    <TextField
                     fullWidth
@@ -120,7 +121,7 @@ const Form = ()=>{
                     name="Investment_Objective"
                     error={!!touched.Investment_Objective && !!errors.Investment_Objective} //!! makes it boolean and if value is empty then error thrown/
                     helperText={touched.Investment_Objective && errors.Investment_Objective}//mention the error Contact on field.
-                    sx={{ gridColumn: "span 2" }}/>
+                    sx={{ gridColumn: "span 4" }}/>
 
                    <TextField
                     fullWidth
@@ -142,14 +143,14 @@ const Form = ()=>{
                     </Select>
 
                     </Box>
-                    <Box display="flex" justifyContent="end" mt="20px">
+                    <Box display="flex" justifyContent="center" mt="50px" ml="10px">
                         <Button type="submit" color="secondary" variant="contained">
                             Submit Form
                         </Button>
                     </Box>
-
-                    {showAlert && (
-                    <Alert severity="success">
+                    
+                    {showAlert && ( //Show this component when hit on submit button only.
+                    <Alert severity="success"> 
                      Form submitted successfully!
                     </Alert>
                     )}
