@@ -6,6 +6,8 @@ import { Formik } from "formik";
 import { InputLabel } from '@mui/material';
 import { useState } from "react";
 import Alert from '@mui/material/Alert';
+import { useRef } from 'react';
+import { ContactSupportOutlined } from "@mui/icons-material";
 
 const initValues={
     "Name":" John Doe",
@@ -29,22 +31,30 @@ const clientSchema=yup.object().shape({
 })
 const Form = ()=>{
     const notMobile = useMediaQuery("(min-width:600px)");
+    const formRef = useRef(null);
     const [showAlert, setShowAlert] = useState(false);
 
     const handleFormSubmit = (values) => {
         console.log(values)
         setShowAlert(true);
         // additional code to handle form submission
+
+        formRef.current.resetForm();
         
         setTimeout(() => {
           setShowAlert(false);
         }, 2000); // hide alert after 2 seconds
       }
 
+    const handleClearForm = ()=>{
+        ContactSupportOutlined.log("bsbdm")
+    }
+
     return (
         <Box>
             <Header title="CLIENT CHECKIN" subtitle="New Client Checkin Form"></Header>
             <Formik
+            innerRef={formRef}
             onSubmit={handleFormSubmit}
             initialValues={initValues}
             validationSchema={clientSchema}>
@@ -143,12 +153,12 @@ const Form = ()=>{
                     </Select>
 
                     </Box>
-                    <Box display="flex" justifyContent="center" mt="50px" ml="10px">
+                    <Box display="flex" justifyContent="center" mt="50px">
                         <Button type="submit" color="secondary" variant="contained">
                             Submit Form
                         </Button>
                     </Box>
-                    
+                
                     {showAlert && ( //Show this component when hit on submit button only.
                     <Alert severity="success"> 
                      Form submitted successfully!
