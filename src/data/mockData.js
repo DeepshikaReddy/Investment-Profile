@@ -432,167 +432,90 @@ export const mockDataTeam = [
   
   export const mockLineData = [
     {
-      id: "japan",
+      id: "ROI",
       color: token_mode("dark").greenAccent[500],
       data: [
         {
-          x: "plane",
-          y: 101,
+          x: "5%",
+          y: 2015,
         },
         {
-          x: "helicopter",
-          y: 75,
+          x: "6%",
+          y: 2016,
         },
         {
-          x: "boat",
-          y: 36,
+          x: "10%",
+          y: 2017,
         },
         {
-          x: "train",
-          y: 216,
+          x: "11%",
+          y: 2018,
         },
         {
-          x: "subway",
-          y: 35,
+          x: "12%",
+          y: 2019,
         },
         {
-          x: "bus",
-          y: 236,
+          x: "7%",
+          y: 2020,
         },
         {
-          x: "car",
-          y: 88,
+          x: "30%",
+          y: 2021,
         },
         {
-          x: "moto",
-          y: 232,
+          x: "12%",
+          y: 2022,
         },
         {
-          x: "bicycle",
-          y: 281,
-        },
-        {
-          x: "horse",
-          y: 1,
-        },
-        {
-          x: "skateboard",
-          y: 35,
-        },
-        {
-          x: "others",
-          y: 14,
-        },
+          x: "3%",
+          y: 2023,
+        }
       ],
     },
-    {
-      id: "france",
-      color: token_mode("dark").blueAccent[300],
-      data: [
-        {
-          x: "plane",
-          y: 212,
-        },
-        {
-          x: "helicopter",
-          y: 190,
-        },
-        {
-          x: "boat",
-          y: 270,
-        },
-        {
-          x: "train",
-          y: 9,
-        },
-        {
-          x: "subway",
-          y: 75,
-        },
-        {
-          x: "bus",
-          y: 175,
-        },
-        {
-          x: "car",
-          y: 33,
-        },
-        {
-          x: "moto",
-          y: 189,
-        },
-        {
-          x: "bicycle",
-          y: 97,
-        },
-        {
-          x: "horse",
-          y: 87,
-        },
-        {
-          x: "skateboard",
-          y: 299,
-        },
-        {
-          x: "others",
-          y: 251,
-        },
-      ],
-    },
-    {
-      id: "us",
-      color: token_mode("dark").redAccent[200],
-      data: [
-        {
-          x: "plane",
-          y: 191,
-        },
-        {
-          x: "helicopter",
-          y: 136,
-        },
-        {
-          x: "boat",
-          y: 91,
-        },
-        {
-          x: "train",
-          y: 190,
-        },
-        {
-          x: "subway",
-          y: 211,
-        },
-        {
-          x: "bus",
-          y: 152,
-        },
-        {
-          x: "car",
-          y: 189,
-        },
-        {
-          x: "moto",
-          y: 152,
-        },
-        {
-          x: "bicycle",
-          y: 8,
-        },
-        {
-          x: "horse",
-          y: 197,
-        },
-        {
-          x: "skateboard",
-          y: 107,
-        },
-        {
-          x: "others",
-          y: 170,
-        },
-      ],
-    },
+
+    // {
+    //   id: "Net Asset Value",
+    //   color: token_mode("dark").blueAccent[300],
+    //   data: [
+    //     {
+    //       x: "100 Million",
+    //       y: 2015,
+    //     },
+    //     {
+    //       x: "10 Billion",
+    //       y: 2016,
+    //     },
+    //     {
+    //       x: "1000 Billion",
+    //       y: 2017,
+    //     },
+    //     {
+    //       x: "70 Billion",
+    //       y: 2018,
+    //     },
+    //     {
+    //       x: "1000 Million",
+    //       y: 2019,
+    //     },
+    //     {
+    //       x: "30 Mrillion",
+    //       y: 2020,
+    //     },
+    //     {
+    //       x: "1 Trillion",
+    //       y: 2021,
+    //     },
+    //     {
+    //       x: "200 Million",
+    //       y: 2022,
+    //     },
+    //     {
+    //       x: "10 Million",
+    //       y: 2023,
+    //     }
+    //   ],
+    // }
   ];
   
   export const mockGeographyData = [

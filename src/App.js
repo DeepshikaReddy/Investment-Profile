@@ -10,7 +10,7 @@ import Team from "./scenes/team"
 import Contacts from "./scenes/contacts";
 import Bar from "./scenes/bar";
 import Form from "./scenes/form";
-// import Line from "./scenes/line";
+import Line from "./scenes/line";
 import Pie from "./scenes/pie";
 import FAQ from "./scenes/faq";
 // import Geography from "./scenes/geography";
@@ -42,7 +42,7 @@ const  App = () => {
       <Route  path="/contacts" element={<Contacts/>} />
       <Route exact path="/bar" element={<Bar/>} />
       <Route exact path="/form" element={<Form/>} />
-      {/* <Route exact path="/line" element={<Line/>} /> */}
+      <Route exact path="/line" element={<Line/>} />
       <Route exact path="/pie" element={<Pie/>} />
       <Route exact path="/faq" element={<FAQ/>} />
       {/* <Route exact path="/geography" element={<Geography/>} /> */}
