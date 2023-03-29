@@ -74,7 +74,7 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
         axisLeft={{
             orient: 'left',
             tickSize: 5,
-            tickPadding: 5,
+            tickPadding: 2,
             tickRotation: 0,
             legend: 'Year',
             legendOffset: -40,
@@ -88,7 +88,7 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
         pointBorderColor={{ from: 'serieColor' }}
         pointLabelYOffset={-12}
         areaOpacity={0.3}
-        useMesh={true}
+        useMesh={false}
         legends={[
             {
                 anchor: 'bottom-right',
