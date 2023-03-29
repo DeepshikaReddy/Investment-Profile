@@ -101,7 +101,7 @@ const SideBar = () => {
 <Box mb="28px">
 
 <Box display="flex" justifyContent="center" alignItems="center">
-<img alt="portfolio_manager" width="100px" height="100px" src={`../../assets/port_manager4.jpg`} style={{cursor: "pointer", borderRadius: "50%"}}/>   
+<img alt="portfolio_manager" width="100px" height="100px" src={`https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200`} style={{cursor: "pointer", borderRadius: "50%"}}/>   
 </Box> 
 
 <Box textAlign="center">  
