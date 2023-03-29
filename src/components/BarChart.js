@@ -38,10 +38,11 @@ const BarChart = ({ isDashboard = false }) => {
             },
           },
         }}
-        keys={["Gold", "Stocks", "Bonds", "Equity", "NFT tokens"]}
+        keys={["Gold", "Stocks", "Bonds", "Equity"]}
         indexBy="user"
         margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
-        padding={0.45}
+        padding={0.45
+        }
         valueScale={{ type: "linear" }}
         indexScale={{ type: "band", round: true }}
         colors={{ scheme: 'greens' }}
