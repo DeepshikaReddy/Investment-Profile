@@ -78,7 +78,7 @@ const Team = () =>{
 
             renderCell:({row :{access}})=>{
                 return(
-                    <Box width="70%" m ="0 auto" p="5px" display="flex" justifyContent="center" backgroundColor={
+                    <Box width="90%" m ="0 auto" p="15px" display="flex" justifyContent="center" backgroundColor={
                       access==="Analyst"
                         ? colors.greenAccent[800]
                             : access === "RiskManager"

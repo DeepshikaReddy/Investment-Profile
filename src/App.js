@@ -8,7 +8,7 @@ import { useState } from "react";
 import Dashboard from "./scenes/dashboard";
 import Team from "./scenes/team"
 import Contacts from "./scenes/contacts";
-// import Bar from "./scenes/bar";
+import Bar from "./scenes/bar";
 import Form from "./scenes/form";
 // import Line from "./scenes/line";
 // import Pie from "./scenes/pie";
@@ -40,7 +40,7 @@ const  App = () => {
       <Route exact path="/" element={<Dashboard/>} />
       <Route exact path="/team" element={<Team/>} />
       <Route  path="/contacts" element={<Contacts/>} />
-      {/* <Route exact path="/bar" element={<Bar/>} /> */}
+      <Route exact path="/bar" element={<Bar/>} />
       <Route exact path="/form" element={<Form/>} />
       {/* <Route exact path="/line" element={<Line/>} /> */}
       {/* <Route exact path="/pie" element={<Pie/>} /> */}
