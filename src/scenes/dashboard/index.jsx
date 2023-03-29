@@ -19,7 +19,7 @@ const Dashboard = () => {
     <Box m="20px">
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
+        <Header title="PORTFOLIO" subtitle="Welcome to Hedge Portfolio" />
 
         <Box>
           <Button
