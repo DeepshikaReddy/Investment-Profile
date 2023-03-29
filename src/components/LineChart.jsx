@@ -81,7 +81,7 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
             legendPosition: 'middle'
         }}
         tooltip={Tooltip}
-        lineWidth={10}
+        lineWidth={5}
         pointSize={9}
         pointColor={{ theme: 'background' }}
         pointBorderWidth={2}

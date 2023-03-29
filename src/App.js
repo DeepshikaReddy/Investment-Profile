@@ -37,9 +37,10 @@ const  App = () => {
     <TopBar setIsSidebar={setIsSidebar} />
 
     <Routes>
-      <Route exact path="/" element={<Dashboard/>} />
-      <Route exact path="/team" element={<Team/>} />
-      <Route  path="/contacts" element={<Contacts/>} />
+      <Route path="/InvestmentProfile/" element={<Dashboard/>} />
+      <Route path="/" element={<Dashboard/>} />
+      <Route path="/team" element={<Team/>} />
+      <Route path="/contacts" element={<Contacts/>} />
       <Route exact path="/bar" element={<Bar/>} />
       <Route exact path="/form" element={<Form/>} />
       <Route exact path="/line" element={<Line/>} />
